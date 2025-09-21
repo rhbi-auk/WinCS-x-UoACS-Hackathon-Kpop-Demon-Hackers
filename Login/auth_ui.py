@@ -10,7 +10,7 @@ class AuthWindow:
 
         self.auth_window = tk.Toplevel(self.root)
         self.auth_window.title("Login")
-        self.auth_window.geometry("320x320")
+        self.auth_window.geometry("400x400")
         self.auth_window.resizable(True, True)
         self.auth_window.configure(bg="#2E3440")
 
@@ -75,6 +75,13 @@ class AuthWindow:
                                                 width=30)
         self.register_password_entry.pack(pady=(0, 20))
 
+        #duplicate password
+        tk.Label(self.current_frame, text="Confirm Password", font=("Arial", 12, "bold"),
+                 fg="#D8DEE9", bg="#2E3440").pack(anchor="w")
+        self.register_duplicate_password_entry = tk.Entry(self.current_frame, show='*', font=("Arial", 12),
+                                                width=30)
+        self.register_duplicate_password_entry.pack(pady=(0, 20))
+
         #Register Button
         register_button = tk.Button(self.current_frame, text="Register", font=("Arial", 12),
                                     command=self.handle_register, bg='#A3BE8C', fg='#2E3440')
@@ -100,6 +107,7 @@ class AuthWindow:
     def handle_register(self):
         username = self.register_username_entry.get()
         password = self.register_password_entry.get()
+        duplicate_password = self.register_duplicate_password_entry.get()
 
         if not services.password_strong(password):
             messagebox.showerror("Error", "Password is weak! It must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit")
