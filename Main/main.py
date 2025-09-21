@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 import time
 
+
+
 class PostureTimer:
     def __init__(self, root):
         self.root = root
@@ -261,7 +263,21 @@ class PostureTimer:
         message = "Time for a break!\n\nPlease do the following:\n\n" + "\n".join(break_tasks)
         messagebox.showinfo("Break Time!", message)
 
-if __name__ == "__main__":
+
+def main() -> None:
     root = tk.Tk()
     app = PostureTimer(root)
+    # Link to the Profile panel + window.
+    try:
+        from Profile.profile import attach_profile
+    except ImportError:
+        # Fallback if running file directly (not via -m)
+        import sys, os
+        sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+        from Profile.profile import attach_profile
+    attach_profile(root, app, title_prefix="Posture Pomodoro Timer")
     root.mainloop()
+
+if __name__ == "__main__":
+    main()
+
