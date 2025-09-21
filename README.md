@@ -1,16 +1,14 @@
 # CS Major to Human
 
-An application for CS majors to break bad habits and build a healthier work and personal life.
+An application for CS majors to break bad habits and build a healthier work life.
 
 ### Description 
 
 ### Features
 - Timer for working:
-  - Reminds user to correct posture at given intervals
-- Timer for walking
-- Connect with friends:
-  - Hold your friends accountable!
-- Streak system for walking and working
+  - Reminds user to correct posture and stay hydrated at given intervals
+- A streak system for working:
+  - Keep the streak going for increase your profile level!
 
 ### Installation
 Run the following commands in your terminal:
