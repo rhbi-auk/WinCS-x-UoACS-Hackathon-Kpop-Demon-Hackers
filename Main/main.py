@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 import time
 
+
+
 class PostureTimer:
     def __init__(self, root):
         self.root = root
@@ -358,7 +360,8 @@ class PostureTimer:
         message = "Time for a break!\n\nPlease do the following:\n\n" + "\n".join(break_tasks)
         messagebox.showinfo("Break Time!", message)
 
-if __name__ == "__main__":
+
+def main() -> None:
     root = tk.Tk()
     app = PostureTimer(root)
     root.mainloop()
