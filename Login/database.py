@@ -13,12 +13,12 @@ def initialise_database():
         username TEXT NOT NULL UNIQUE, 
         password_hash TEXT NOT NULL,
         walk_streak INTEGER DEFAULT 0,
-        work_streak INTEGER DEFAULT 0,''')
-    conn.commit()
+        work_streak INTEGER DEFAULT 0
+        )''')
 
 def add_user(username, password):
     """Adds a new user to the database."""
-    salt = bycrypt.gensalt()
+    salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(password('utf-8'), salt)
     with sqlite3.connect(DATABASE_NAME) as conn:
         cursor = conn.cursor()
@@ -40,7 +40,7 @@ def verify_user(username, password):
     """Verifies a user's password against the database."""
     user = get_user(username)
     if user:
-        password_hash = user[2]
+        password_hash = user[2].encode('utf-8')
         return bcrypt.checkpw(password.encode('utf-8'), password_hash)
     else:
         return False
