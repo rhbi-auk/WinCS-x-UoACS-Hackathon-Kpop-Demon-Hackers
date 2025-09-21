@@ -1,1 +1,0 @@
-#Friends page python file. [PLEASE ADD DESCRIPTION]
