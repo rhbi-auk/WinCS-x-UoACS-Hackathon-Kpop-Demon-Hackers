@@ -2,8 +2,6 @@
 
 An application for CS majors to break bad habits and build a healthier work life.
 
-### Description 
-
 ### Features
 - Timer for working:
   - Reminds user to correct posture and stay hydrated at given intervals
