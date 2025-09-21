@@ -34,11 +34,12 @@ class WorkTimer:
         self.update_timer()
     
     def load_images(self):
-        # Try to load images using Tkinter's PhotoImage
+    # Try to load images using Tkinter's PhotoImage
         try:
+            image_dir = "work_timer_images"
             # Load posture images
             for i in range(1, 5):
-                image_path = f"posture{i}.png"
+                image_path = os.path.join(image_dir, f"posture{i}.png")
                 if os.path.exists(image_path):
                     img = tk.PhotoImage(file=image_path).zoom(4,4)
                     # Store a reference to prevent garbage collection
@@ -47,15 +48,15 @@ class WorkTimer:
                     print(f"Image not found: {image_path}")
                     self.posture_images = None
                     break
-            
+        
             # Load computer image
-            computer_path = "computer-removebg-preview.png"
+            computer_path = os.path.join(image_dir, "computer-removebg-preview.png")
             if os.path.exists(computer_path):
                 self.computer_image = tk.PhotoImage(file=computer_path).subsample(2,2)
             else:
                 print(f"Image not found: {computer_path}")
                 self.computer_image = None
-                
+            
         except Exception as e:
             print(f"Error loading images: {e}")
             # Fallback to drawing if images can't be loaded
