@@ -398,4 +398,15 @@ class WorkTimer:
 if __name__ == "__main__":
     root = tk.Tk()
     app = WorkTimer(root)
+    # ---- Profile mini-panel + Edit window (non-invasive) ----
+    try:
+        from Profile.profile import attach_profile
+    except ImportError:
+        # allow running the file directly (not via -m)
+        import sys, os
+        sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+        from Profile.profile import attach_profile
+
+    attach_profile(root, app, title_prefix="Posture Pomodoro Timer")
+
     root.mainloop()
