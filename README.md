@@ -20,3 +20,9 @@ pip install -r requirements.txt
 - Python 3.10 
 - Tkinter
 
+### Developers
+- Kethmi Hewapatha
+- Regina Bi
+- Levi Jung
+- Rafael Carreon
+- Spencer Reinsfield
