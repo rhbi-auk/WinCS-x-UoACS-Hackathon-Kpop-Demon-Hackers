@@ -16,7 +16,7 @@ class App(tk.Tk):
 
         self.frames = {}
 
-        # Register all pages
+        # Register all pages (TestPage is empty, it's for debugging purposes)
         for PageClass in (HomePage, TestPage, WorkTimer):  # add more pages later
             frame = PageClass(parent=container, controller=self)
             self.frames[PageClass.__name__] = frame
@@ -24,10 +24,10 @@ class App(tk.Tk):
 
         self.show_frame("HomePage")
 
-        #Main Menu Button
+        # Main Menu Button
         home_page = self.frames["HomePage"]
 
-        #Configuration and set-up of menu buttons
+        # Configuration and set-up of menu buttons
         home_page.friends_page_button.config(
             command=lambda: (home_page.toggle_menu(), self.show_frame("TestPage"))
         )
