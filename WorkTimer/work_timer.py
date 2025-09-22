@@ -47,7 +47,7 @@ class WorkTimer(tk.Frame):
 
     def load_images(self):
         try:
-            image_dir = "Main\WorkTimer"
+            image_dir = "WorkTimer"
             for i in range(1, 5):
                 image_path = os.path.join(image_dir, f"posture{i}.png")
                 if os.path.exists(image_path):
