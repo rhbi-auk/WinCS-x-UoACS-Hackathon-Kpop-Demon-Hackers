@@ -11,7 +11,7 @@ class HomePage(tk.Frame):
         self.main_body_frame.grid(row=0, column=0, sticky="nsew")
 
         # Background Image
-        self.bg = tk.PhotoImage(file="Main/Homepage/background.png").zoom(2, 2)
+        self.bg = tk.PhotoImage(file="Homepage/background.png").zoom(2, 2)
 
         self.canvas = tk.Canvas(
             self.main_body_frame,
@@ -30,7 +30,7 @@ class HomePage(tk.Frame):
 
         # Animated Sprite
         self.frames = [
-            tk.PhotoImage(file=f"Main/Homepage/sprites/sprite{i}.png")
+            tk.PhotoImage(file=f"Homepage/sprites/sprite{i}.png")
             for i in range(1, 5)
         ]
         self.canvas.image_refs = self.frames  # prevent garbage collection
