@@ -12,9 +12,9 @@ class NewFeature(tk.Frame): # Change 'NewFeature' to the name of the page. e.g. 
         label = tk.Label(self, text="This is the New Feature Page") # EXAMPLE TEXT
         label.pack(pady=20)
 
-        back_button = tk.Button( # Example button 
+        back_button = tk.Button( # Example home page button. 
             self,
             text="Back to Home",
-            command=lambda: controller.show_frame("HomePage")
+            command=lambda: controller.show_frame("HomePage") # You can change 'show_frame("HomePage")' to the name of another page if you wish.
         )
         back_button.pack(pady=10)

@@ -5,7 +5,6 @@ import tkinter as tk
 
 #STEP 1: IMPORT YOUR PAGE HERE. e.g. from FolderName.python_file import ClassName
 from Homepage.homepage import HomePage
-from Temporary.temp import TestPage
 from WorkTimer.work_timer import WorkTimer
 
 class App(tk.Tk):
@@ -21,7 +20,7 @@ class App(tk.Tk):
         self.frames = {}
 
         # STEP 2: INSERT ClassName OF YOUR PAGE. 
-        for PageClass in (HomePage, TestPage, WorkTimer): # ADD INSIDE OF BRACKETS HERE.
+        for PageClass in (HomePage, WorkTimer): # ADD INSIDE OF BRACKETS HERE.
             frame = PageClass(parent=container, controller=self)
             self.frames[PageClass.__name__] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -39,12 +38,9 @@ class App(tk.Tk):
             command=lambda: (home_page.toggle_menu(), self.show_frame("ClassName"))
         )
         """
-        home_page.friends_page_button.config(
-            command=lambda: (home_page.toggle_menu(), self.show_frame("TestPage"))
+        home_page.work_timer_button.config(
+            command=lambda: [self.show_frame("WorkTimer"), home_page.toggle_menu()]
         )
-
-        home_page.work_timer_button.config(command=lambda: [self.show_frame("WorkTimer"),
-                                               home_page.toggle_menu()])
         
 
     def show_frame(self, page_name):
